@@ -9,16 +9,16 @@
     <style>
         body { font-family: 'Inter', sans-serif; }
         h1, h2, h3, .serif { font-family: 'Playfair Display', serif; }
-        /* Smooth transitions for the mobile menu */
-        .peer:checked ~ .mobile-menu { transform: translateX(0); }
+        /* Critical fix for the menu transition */
+        #menu-toggle:checked ~ .menu-overlay { transform: translateX(0); }
     </style>
 </head>
 <body class="bg-[#faf9f6] text-stone-800">
 
-    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-stone-200">
+    <nav class="sticky top-0 z-[100] bg-white border-b border-stone-200">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center relative">
             
-            <a href="index.html" class="text-3xl font-bold tracking-tighter text-amber-900 z-50">NARRIVO</a>
+            <a href="index.html" class="text-3xl font-bold tracking-tighter text-amber-900 z-[110]">NARRIVO</a>
             
             <div class="hidden md:flex space-x-8 text-sm font-semibold uppercase tracking-widest text-stone-500">
                 <a href="index.html" class="text-amber-900 font-bold border-b-2 border-amber-900 pb-1">Home</a>
@@ -29,32 +29,30 @@
                 <a href="blog.html" class="hover:text-amber-700 transition">Blog</a>
             </div>
 
-            <a href="community.html" class="hidden md:block bg-amber-900 text-white px-6 py-2 rounded-sm text-sm font-bold hover:bg-amber-800 transition">JOIN US</a>
-
             <div class="md:hidden flex items-center">
-                <input type="checkbox" id="menu-toggle" class="hidden peer">
-                <label for="menu-toggle" class="z-50 cursor-pointer text-amber-900">
+                <input type="checkbox" id="menu-toggle" class="hidden">
+                
+                <label for="menu-toggle" class="z-[110] cursor-pointer text-amber-900 p-2">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
                     </svg>
                 </label>
 
-                <div class="mobile-menu fixed inset-0 bg-white z-40 translate-x-full transition-transform duration-300 ease-in-out flex flex-col items-center justify-center space-y-8 text-xl uppercase tracking-widest font-bold text-stone-600">
-                    <label for="menu-toggle" class="absolute top-6 right-6 text-stone-400">
+                <div class="menu-overlay fixed inset-0 bg-white z-[105] translate-x-full transition-transform duration-300 ease-in-out flex flex-col items-center justify-center space-y-8 text-xl uppercase tracking-widest font-bold text-stone-600">
+                    
+                    <label for="menu-toggle" class="absolute top-6 right-6 text-stone-400 cursor-pointer">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                         </svg>
                     </label>
                     
-                    <a href="index.html" class="text-amber-900">Home</a>
+                    <a href="index.html" class="hover:text-amber-900">Home</a>
                     <a href="about.html" class="hover:text-amber-900">About</a>
                     <a href="events.html" class="hover:text-amber-900">Events</a>
-                    <a href="discussion.html" class="hover:text-amber-900">Discussion</a>
+                    <a href="discussion.html" class="hover:text-amber-900">Discussion Guide</a>
                     <a href="community.html" class="hover:text-amber-900">Community</a>
                     <a href="blog.html" class="hover:text-amber-900">Blog</a>
-                    <hr class="w-12 border-amber-900">
-                    <a href="mailto:support@narrivobookclub.online" class="text-sm lowercase font-normal text-stone-400 italic">support@narrivobookclub.online</a>
-                </div>
+                    </div>
             </div>
         </div>
     </nav>
@@ -80,10 +78,9 @@
             </div>
             <div>
                 <h3 class="text-amber-800 font-bold uppercase tracking-widest text-sm mb-4">Book of the Month</h3>
-                <h2 class="text-5xl mb-6 leading-tight">The Midnight Library <br><span class="text-2xl italic font-light text-stone-500">by Matt Haig</span></h2>
+                <h2 class="text-5xl mb-6 leading-tight serif">The Midnight Library <br><span class="text-2xl italic font-light text-stone-500">by Matt Haig</span></h2>
                 <p class="text-stone-600 text-lg mb-8 leading-relaxed">
                     Between life and death there is a library. Every book provides a chance to try another life you could have lived. To see how things would be if you had made other choices... 
-                    This month, we explore Nora Seed's journey through infinite versions of her existence.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4">
                     <a href="discussion.html" class="border-2 border-stone-800 px-8 py-3 font-bold hover:bg-stone-800 hover:text-white transition text-sm uppercase text-center">Discussion Guide</a>
@@ -99,15 +96,10 @@
                 <p class="text-xs tracking-widest font-bold uppercase mb-2">&copy; 2026 NARRIVO BOOK CLUB.</p>
                 <p class="text-[10px] text-stone-600 tracking-widest uppercase">Elevating the Reading Experience.</p>
             </div>
-            
             <div class="flex flex-col items-center md:items-end space-y-4">
                 <a href="mailto:support@narrivobookclub.online" class="text-amber-500 hover:text-amber-400 transition text-sm font-bold tracking-widest uppercase border-b border-amber-900 pb-1">
                     Contact Us: support@narrivobookclub.online
                 </a>
-                <div class="flex space-x-8 text-[10px] font-bold tracking-widest uppercase">
-                    <a href="blog.html" class="hover:text-white transition">Newsletter</a>
-                    <a href="community.html" class="hover:text-white transition">Privacy Policy</a>
-                </div>
             </div>
         </div>
     </footer>
