@@ -3,94 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Narrivo Book Club | Elevating the Reading Experience</title>
+    <title>Narrivo Book Club | Home</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Inter', sans-serif; }
         h1, h2, h3, .serif { font-family: 'Playfair Display', serif; }
+        /* Smooth transitions for the mobile menu */
+        .peer:checked ~ .mobile-menu { transform: translateX(0); }
     </style>
 </head>
-<body class="bg-[#faf9f6] text-stone-800 leading-relaxed">
+<body class="bg-[#faf9f6] text-stone-800">
 
     <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-stone-200">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-        <a href="index.html" class="text-3xl font-bold tracking-tighter text-amber-900">NARRIVO</a>
-        
-        <div class="hidden md:flex space-x-8 text-sm font-semibold uppercase tracking-widest text-stone-500">
-            <a href="index.html" class="hover:text-amber-700 transition">Home</a>
-            <a href="about.html" class="hover:text-amber-700 transition">About</a>
-            <a href="events.html" class="hover:text-amber-700 transition">Events</a>
-            <a href="discussion.html" class="hover:text-amber-700 transition">Discussion Guide</a>
-            <a href="community.html" class="hover:text-amber-700 transition">Community</a>
-            <a href="blog.html" class="hover:text-amber-700 transition">Blog</a>
-        </div>
-        
-        <a href="community.html" class="bg-amber-900 text-white px-6 py-2 rounded-sm text-sm font-bold hover:bg-amber-800 transition">JOIN US</a>
-    </div>
-</nav>
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center relative">
+            
+            <a href="index.html" class="text-3xl font-bold tracking-tighter text-amber-900 z-50">NARRIVO</a>
+            
+            <div class="hidden md:flex space-x-8 text-sm font-semibold uppercase tracking-widest text-stone-500">
+                <a href="index.html" class="text-amber-900 font-bold border-b-2 border-amber-900 pb-1">Home</a>
+                <a href="about.html" class="hover:text-amber-700 transition">About</a>
+                <a href="events.html" class="hover:text-amber-700 transition">Events</a>
+                <a href="discussion.html" class="hover:text-amber-700 transition">Discussion Guide</a>
+                <a href="community.html" class="hover:text-amber-700 transition">Community</a>
+                <a href="blog.html" class="hover:text-amber-700 transition">Blog</a>
+            </div>
 
-    <header class="relative bg-stone-900 py-32 px-6 overflow-hidden">
-        <div class="absolute inset-0 opacity-40">
-            <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=1600&q=80" alt="Library" class="w-full h-full object-cover">
+            <a href="community.html" class="hidden md:block bg-amber-900 text-white px-6 py-2 rounded-sm text-sm font-bold hover:bg-amber-800 transition">JOIN US</a>
+
+            <div class="md:hidden flex items-center">
+                <input type="checkbox" id="menu-toggle" class="hidden peer">
+                <label for="menu-toggle" class="z-50 cursor-pointer text-amber-900">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                    </svg>
+                </label>
+
+                <div class="mobile-menu fixed inset-0 bg-white z-40 translate-x-full transition-transform duration-300 ease-in-out flex flex-col items-center justify-center space-y-8 text-xl uppercase tracking-widest font-bold text-stone-600">
+                    <label for="menu-toggle" class="absolute top-6 right-6 text-stone-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </label>
+                    
+                    <a href="index.html" class="text-amber-900">Home</a>
+                    <a href="about.html" class="hover:text-amber-900">About</a>
+                    <a href="events.html" class="hover:text-amber-900">Events</a>
+                    <a href="discussion.html" class="hover:text-amber-900">Discussion</a>
+                    <a href="community.html" class="hover:text-amber-900">Community</a>
+                    <a href="blog.html" class="hover:text-amber-900">Blog</a>
+                    <hr class="w-12 border-amber-900">
+                    <a href="mailto:support@narrivobookclub.online" class="text-sm lowercase font-normal text-stone-400 italic">support@narrivobookclub.online</a>
+                </div>
+            </div>
         </div>
-        <div class="relative max-w-4xl mx-auto text-center text-white">
-            <h1 class="text-5xl md:text-7xl mb-6">Where stories find a voice.</h1>
-            <p class="text-xl md:text-2xl font-light italic mb-10 text-stone-300">Narrivo is a premier book club community for those who read deeply and speak passionately.</p>
-            <a href="#about" class="bg-amber-600 hover:bg-amber-500 text-white px-10 py-4 rounded-sm font-bold transition">EXPLORE THE CLUB</a>
+    </nav>
+
+    <header class="relative h-[80vh] flex items-center justify-center text-center text-white">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=2000&q=80" class="w-full h-full object-cover brightness-50" alt="Dark Moody Library">
+        </div>
+        <div class="relative z-10 max-w-4xl px-6">
+            <h1 class="text-6xl md:text-8xl mb-6 font-bold tracking-tight">The Library of Lives.</h1>
+            <p class="text-xl md:text-2xl font-light italic mb-10 text-stone-200">Exploring the "What Ifs" through the world's most captivating literature.</p>
+            <a href="about.html" class="bg-amber-600 hover:bg-amber-500 px-10 py-4 font-bold transition uppercase tracking-widest text-sm inline-block">Explore the Club</a>
         </div>
     </header>
 
     <section class="max-w-7xl mx-auto px-6 py-24">
         <div class="grid md:grid-cols-2 gap-16 items-center">
-            <div class="shadow-2xl order-2 md:order-1">
-                <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=800&q=80" alt="Current Book" class="w-full h-auto">
+            <div class="flex justify-center">
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=600&q=80" alt="The Midnight Library Book" class="w-80 shadow-2xl rounded-sm">
+                    <div class="absolute -top-4 -left-4 bg-amber-900 text-white px-4 py-2 text-xs font-bold tracking-widest uppercase">Currently Reading</div>
+                </div>
             </div>
-            <div class="order-1 md:order-2">
-                <span class="text-amber-800 font-bold tracking-widest uppercase text-sm">Now Reading</span>
-                <h2 class="text-4xl md:text-5xl my-4">The Midnight Library</h2>
-                <p class="text-stone-500 italic mb-6">by Matt Haig</p>
-                <p class="text-lg text-stone-600 mb-8 leading-relaxed">
-                    Between life and death there is a library, and within that library, the shelves go on forever. Every book provides a chance to try another life you could have lived.
+            <div>
+                <h3 class="text-amber-800 font-bold uppercase tracking-widest text-sm mb-4">Book of the Month</h3>
+                <h2 class="text-5xl mb-6 leading-tight">The Midnight Library <br><span class="text-2xl italic font-light text-stone-500">by Matt Haig</span></h2>
+                <p class="text-stone-600 text-lg mb-8 leading-relaxed">
+                    Between life and death there is a library. Every book provides a chance to try another life you could have lived. To see how things would be if you had made other choices... 
+                    This month, we explore Nora Seed's journey through infinite versions of her existence.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4">
-                    <button class="bg-stone-800 text-white px-8 py-3 rounded-sm font-bold hover:bg-black">Discussion Guide</button>
-                    <button class="border border-stone-800 px-8 py-3 rounded-sm font-bold hover:bg-stone-100">RSVP for Meeting</button>
+                    <a href="discussion.html" class="border-2 border-stone-800 px-8 py-3 font-bold hover:bg-stone-800 hover:text-white transition text-sm uppercase text-center">Discussion Guide</a>
+                    <a href="events.html" class="bg-stone-800 text-white px-8 py-3 font-bold hover:bg-stone-700 transition text-sm uppercase text-center">RSVP to Meetup</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="about" class="bg-stone-100 py-24 px-6">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl">The Narrivo Experience</h2>
-                <div class="h-1 w-24 bg-amber-800 mx-auto mt-4"></div>
+    <footer class="bg-stone-900 text-stone-400 py-16 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center border-t border-stone-800 pt-10">
+            <div class="mb-8 md:mb-0 text-center md:text-left">
+                <p class="text-xs tracking-widest font-bold uppercase mb-2">&copy; 2026 NARRIVO BOOK CLUB.</p>
+                <p class="text-[10px] text-stone-600 tracking-widest uppercase">Elevating the Reading Experience.</p>
             </div>
-            <div class="grid md:grid-cols-3 gap-12 text-center">
-                <div>
-                    <h3 class="text-2xl mb-4">Curated Selections</h3>
-                    <p class="text-stone-600">We skip the fluff. Our monthly picks are hand-selected for their literary merit and discussion potential.</p>
+            
+            <div class="flex flex-col items-center md:items-end space-y-4">
+                <a href="mailto:support@narrivobookclub.online" class="text-amber-500 hover:text-amber-400 transition text-sm font-bold tracking-widest uppercase border-b border-amber-900 pb-1">
+                    Contact Us: support@narrivobookclub.online
+                </a>
+                <div class="flex space-x-8 text-[10px] font-bold tracking-widest uppercase">
+                    <a href="blog.html" class="hover:text-white transition">Newsletter</a>
+                    <a href="community.html" class="hover:text-white transition">Privacy Policy</a>
                 </div>
-                <div>
-                    <h3 class="text-2xl mb-4">Lively Discussion</h3>
-                    <p class="text-stone-600">Whether in person or digital, our community engages in thoughtful, respectful, and deep dialogue.</p>
-                </div>
-                <div>
-                    <h3 class="text-2xl mb-4">Global Community</h3>
-                    <p class="text-stone-600">Connect with readers from across the world who share your passion for the written word.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="bg-stone-900 text-stone-400 py-12 px-6 border-t border-stone-800">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center">
-            <p>&copy; 2026 Narrivo Book Club. All rights reserved.</p>
-            <div class="flex space-x-6 mt-6 md:mt-0 uppercase text-xs tracking-widest font-bold">
-                <a href="#" class="hover:text-white">Instagram</a>
-                <a href="#" class="hover:text-white">Newsletter</a>
-                <a href="#" class="hover:text-white">Contact</a>
             </div>
         </div>
     </footer>

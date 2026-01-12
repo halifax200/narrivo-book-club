@@ -9,77 +9,97 @@
     <style>
         body { font-family: 'Inter', sans-serif; }
         h1, h2, h3, .serif { font-family: 'Playfair Display', serif; }
+        .peer:checked ~ .mobile-menu { transform: translateX(0); }
     </style>
 </head>
 <body class="bg-[#faf9f6] text-stone-800">
 
-   <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-stone-200">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-        <a href="index.html" class="text-3xl font-bold tracking-tighter text-amber-900">NARRIVO</a>
-        
-        <div class="hidden md:flex space-x-8 text-sm font-semibold uppercase tracking-widest text-stone-500">
-            <a href="index.html" class="hover:text-amber-700 transition">Home</a>
-            <a href="about.html" class="hover:text-amber-700 transition">About</a>
-            <a href="events.html" class="hover:text-amber-700 transition">Events</a>
-            <a href="discussion.html" class="hover:text-amber-700 transition">Discussion Guide</a>
-            <a href="community.html" class="hover:text-amber-700 transition">Community</a>
-            <a href="blog.html" class="hover:text-amber-700 transition">Blog</a>
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-stone-200">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center relative">
+            <a href="index.html" class="text-3xl font-bold tracking-tighter text-amber-900 z-50">NARRIVO</a>
+            <div class="hidden md:flex space-x-8 text-sm font-semibold uppercase tracking-widest text-stone-500">
+                <a href="index.html" class="hover:text-amber-700 transition">Home</a>
+                <a href="about.html" class="hover:text-amber-700 transition">About</a>
+                <a href="events.html" class="text-amber-900 font-bold border-b-2 border-amber-900 pb-1">Events</a>
+                <a href="discussion.html" class="hover:text-amber-700 transition">Discussion Guide</a>
+                <a href="community.html" class="hover:text-amber-700 transition">Community</a>
+                <a href="blog.html" class="hover:text-amber-700 transition">Blog</a>
+            </div>
+            <a href="community.html" class="hidden md:block bg-amber-900 text-white px-6 py-2 rounded-sm text-sm font-bold hover:bg-amber-800 transition">JOIN US</a>
+            
+            <div class="md:hidden flex items-center">
+                <input type="checkbox" id="menu-toggle" class="hidden peer">
+                <label for="menu-toggle" class="z-50 cursor-pointer text-amber-900">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                    </svg>
+                </label>
+                <div class="mobile-menu fixed inset-0 bg-white z-40 translate-x-full transition-transform duration-300 ease-in-out flex flex-col items-center justify-center space-y-8 text-xl uppercase tracking-widest font-bold text-stone-600">
+                    <label for="menu-toggle" class="absolute top-6 right-6 text-stone-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </label>
+                    <a href="index.html" class="hover:text-amber-900">Home</a>
+                    <a href="about.html" class="hover:text-amber-900">About</a>
+                    <a href="events.html" class="text-amber-900 font-bold">Events</a>
+                    <a href="discussion.html" class="hover:text-amber-900">Discussion</a>
+                    <a href="community.html" class="hover:text-amber-900">Community</a>
+                    <a href="blog.html" class="hover:text-amber-900">Blog</a>
+                    <hr class="w-12 border-amber-900">
+                    <a href="mailto:support@narrivobookclub.online" class="text-sm lowercase font-normal text-stone-400 italic">support@narrivobookclub.online</a>
+                </div>
+            </div>
         </div>
-        
-        <a href="community.html" class="bg-amber-900 text-white px-6 py-2 rounded-sm text-sm font-bold hover:bg-amber-800 transition">JOIN US</a>
-    </div>
-</nav>
+    </nav>
 
-    <header class="py-20 bg-stone-100 border-b border-stone-200 text-center">
-        <h1 class="text-5xl mb-4">Upcoming Gatherings</h1>
-        <p class="text-stone-500 italic max-w-2xl mx-auto px-6">Join us for deep dives into our monthly selections, author Q&As, and social mixers.</p>
+    <header class="py-20 text-center border-b border-stone-200">
+        <h1 class="text-5xl mb-4">Gatherings</h1>
+        <p class="text-stone-500 italic">Where stories come to life through conversation.</p>
     </header>
 
-    <main class="max-w-5xl mx-auto px-6 py-16">
-        
-        <div class="flex flex-col md:flex-row gap-8 mb-12 bg-white p-8 rounded-lg shadow-sm border border-stone-100">
-            <div class="md:w-1/4 text-center border-r border-stone-100 pr-8">
-                <span class="block text-4xl font-bold text-amber-800 uppercase">Jan 28</span>
-                <span class="text-stone-400 font-semibold uppercase tracking-tighter">7:00 PM EST</span>
+    <main class="max-w-4xl mx-auto px-6 py-20 space-y-24">
+        <div class="flex flex-col md:flex-row gap-12 items-center">
+            <div class="w-full md:w-1/2">
+                <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80" alt="Cafe Meeting" class="rounded-sm shadow-xl">
             </div>
-            <div class="md:w-3/4">
-                <span class="inline-block bg-amber-100 text-amber-800 text-xs px-2 py-1 rounded mb-3 font-bold uppercase">Main Discussion</span>
-                <h3 class="text-2xl font-bold mb-2">January Meetup: The Midnight Library</h3>
-                <p class="text-stone-600 mb-4">A deep dive into Matt Haig's bestseller. We will discuss the themes of regret, choice, and what truly makes a life worth living.</p>
-                <div class="flex items-center text-sm text-stone-500 mb-6">
-                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                    The Corner Café (Upper West Side) & Virtual Zoom
-                </div>
-                <button class="bg-stone-800 text-white px-6 py-2 rounded font-bold hover:bg-black transition">RSVP Now</button>
+            <div class="w-full md:w-1/2 space-y-4">
+                <div class="text-amber-800 font-bold uppercase tracking-widest text-xs">January 24, 2026 • 6:00 PM</div>
+                <h2 class="text-3xl font-serif">The Midnight Library Discussion</h2>
+                <p class="text-stone-500 text-sm italic">The Glass House Café, Downtown</p>
+                <p class="text-stone-600 text-sm leading-relaxed">Join us for an evening of deep reflection as we explore the infinite lives of Nora Seed over coffee and light bites.</p>
+                <a href="community.html" class="inline-block border-b-2 border-amber-900 pb-1 text-xs font-bold uppercase tracking-widest hover:text-amber-900">RSVP Now</a>
             </div>
         </div>
 
-        <div class="flex flex-col md:flex-row gap-8 mb-12 bg-white p-8 rounded-lg shadow-sm border border-stone-100">
-            <div class="md:w-1/4 text-center border-r border-stone-100 pr-8">
-                <span class="block text-4xl font-bold text-stone-300 uppercase">Feb 12</span>
-                <span class="text-stone-400 font-semibold uppercase tracking-tighter">6:30 PM EST</span>
+        <div class="flex flex-col md:flex-row-reverse gap-12 items-center">
+            <div class="w-full md:w-1/2">
+                <img src="https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b?auto=format&fit=crop&w=800&q=80" alt="Virtual Meeting" class="rounded-sm shadow-xl">
             </div>
-            <div class="md:w-3/4 opacity-80">
-                <span class="inline-block bg-stone-100 text-stone-600 text-xs px-2 py-1 rounded mb-3 font-bold uppercase">Author Session</span>
-                <h3 class="text-2xl font-bold mb-2">Q&A with Mystery Guest Author</h3>
-                <p class="text-stone-600 mb-4">An exclusive virtual evening with a guest author to discuss the craft of writing and their latest release.</p>
-                <div class="flex items-center text-sm text-stone-500 mb-6">
-                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
-                    Zoom Link Provided Upon RSVP
-                </div>
-                <button class="bg-stone-200 text-stone-500 px-6 py-2 rounded font-bold cursor-not-allowed">Coming Soon</button>
+            <div class="w-full md:w-1/2 space-y-4">
+                <div class="text-amber-800 font-bold uppercase tracking-widest text-xs">February 02, 2026 • 7:00 PM</div>
+                <h2 class="text-3xl font-serif">Virtual Reading Hour</h2>
+                <p class="text-stone-500 text-sm italic">Online via Zoom</p>
+                <p class="text-stone-600 text-sm leading-relaxed">A quiet hour for communal reading, followed by a brief 20-minute check-in on our current progress.</p>
+                <a href="community.html" class="inline-block border-b-2 border-amber-900 pb-1 text-xs font-bold uppercase tracking-widest hover:text-amber-900">Get Link</a>
             </div>
         </div>
-
     </main>
 
-    <footer class="bg-stone-900 text-stone-400 py-12 px-6 border-t border-stone-800">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-sm">
-            <p>&copy; 2026 Narrivo Book Club. All rights reserved.</p>
-            <div class="flex space-x-6 mt-6 md:mt-0 uppercase text-xs tracking-widest font-bold">
-                <a href="#" class="hover:text-white">Instagram</a>
-                <a href="#" class="hover:text-white">Newsletter</a>
-                <a href="#" class="hover:text-white">Contact</a>
+    <footer class="bg-stone-900 text-stone-400 py-16 px-6 mt-20">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center border-t border-stone-800 pt-10">
+            <div class="mb-8 md:mb-0 text-center md:text-left">
+                <p class="text-xs tracking-widest font-bold uppercase mb-2">&copy; 2026 NARRIVO BOOK CLUB.</p>
+                <p class="text-[10px] text-stone-600 tracking-widest uppercase">Elevating the Reading Experience.</p>
+            </div>
+            <div class="flex flex-col items-center md:items-end space-y-4">
+                <a href="mailto:support@narrivobookclub.online" class="text-amber-500 hover:text-amber-400 transition text-sm font-bold tracking-widest uppercase border-b border-amber-900 pb-1">
+                    Contact Us: support@narrivobookclub.online
+                </a>
+                <div class="flex space-x-8 text-[10px] font-bold tracking-widest uppercase">
+                    <a href="blog.html" class="hover:text-white transition">Newsletter</a>
+                    <a href="community.html" class="hover:text-white transition">Privacy Policy</a>
+                </div>
             </div>
         </div>
     </footer>
