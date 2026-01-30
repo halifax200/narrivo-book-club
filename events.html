@@ -3,100 +3,182 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Events | Narrivo Book Club</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Author Spotlight | Narrivo Book Club</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; }
-        h1, h2, h3, .serif { font-family: 'Playfair Display', serif; }
-        /* Solid Menu Fix */
-        #menu-toggle:checked ~ .menu-overlay { transform: translateX(0); }
+        :root {
+            --amber-900: #78350f;
+            --amber-600: #b45309;
+            --stone-50: #faf9f6;
+            --stone-200: #e7e5e4;
+            --white: #ffffff;
+            --black: #1a1a1a;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--white); color: #333; line-height: 1.6; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+        /* --- NAVIGATION MENU --- */
+        nav { padding: 25px 0; border-bottom: 1px solid var(--stone-200); display: flex; justify-content: space-between; align-items: center; background: white; }
+        .logo { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--amber-900); text-decoration: none; font-weight: bold; }
+        .nav-links a { text-decoration: none; color: #555; margin-left: 30px; font-weight: 600; font-size: 0.95rem; transition: color 0.3s; }
+        .nav-links a:hover, .nav-links a.active { color: var(--amber-600); }
+
+        /* Hero Section */
+        .spotlight-hero { background-color: var(--stone-50); padding: 100px 0 80px; text-align: center; }
+        .eyebrow { color: var(--amber-600); text-transform: uppercase; letter-spacing: 2px; font-weight: 700; font-size: 14px; }
+        h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; color: var(--amber-900); margin: 15px 0; }
+        .hero-desc { max-width: 750px; margin: 0 auto; color: #555; font-size: 1.1rem; }
+
+        /* Event Archive Grid */
+        .archive-section { padding: 80px 0; }
+        .section-header { margin-bottom: 50px; text-align: center; }
+        .section-header h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--amber-900); }
+
+        .event-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
+        .event-card { background: var(--white); border: 1px solid var(--stone-200); border-radius: 16px; overflow: hidden; transition: all 0.3s ease; }
+        .event-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
+        
+        .card-img { height: 280px; background-color: var(--stone-200); position: relative; }
+        .card-img img { width: 100%; height: 100%; object-fit: cover; }
+        .date-badge { position: absolute; bottom: 20px; left: 20px; background: var(--amber-900); color: white; padding: 6px 15px; border-radius: 8px; font-weight: bold; font-size: 14px; }
+
+        .card-body { padding: 30px; }
+        .card-body h3 { font-family: 'Playfair Display', serif; font-size: 1.6rem; margin-bottom: 8px; color: var(--black); }
+        .author-tag { color: var(--amber-600); font-weight: 600; font-size: 15px; margin-bottom: 12px; display: block; }
+        .event-link { display: inline-block; margin-top: 15px; color: var(--amber-900); font-weight: 700; text-decoration: none; border-bottom: 2px solid transparent; }
+        .event-link:hover { border-bottom-color: var(--amber-900); }
+
+        /* The Review Room */
+        .review-room { background-color: var(--amber-900); padding: 100px 0; color: white; }
+        .review-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 50px; }
+        .review-card { background: rgba(255, 255, 255, 0.08); padding: 40px; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.1); }
+        .author-accent { border-top: 4px solid #fcd34d; }
+        .reader-accent { border-top: 4px solid var(--stone-200); }
+        .quote { font-style: italic; font-size: 1.1rem; line-height: 1.8; margin-bottom: 25px; opacity: 0.9; }
+        .reviewer-name { display: block; font-weight: bold; color: #fcd34d; font-size: 1.1rem; }
+        .reviewer-title { font-size: 0.85rem; opacity: 0.7; text-transform: uppercase; }
+
+        /* --- FOOTER --- */
+        footer { padding: 80px 0 40px; background: var(--stone-50); border-top: 1px solid var(--stone-200); text-align: center; }
+        .footer-logo { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--amber-900); text-decoration: none; font-weight: bold; display: block; margin-bottom: 20px; }
+        .footer-text { color: #666; font-size: 0.9rem; max-width: 500px; margin: 0 auto 30px; }
+        .copyright { font-size: 0.8rem; color: #999; border-top: 1px solid var(--stone-200); padding-top: 30px; }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.8rem; }
+            nav { flex-direction: column; gap: 20px; }
+            .nav-links a { margin: 0 10px; }
+        }
     </style>
 </head>
-<body class="bg-[#faf9f6] text-stone-800">
+<body>
 
-    <nav class="sticky top-0 z-[100] bg-white border-b border-stone-200">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center relative">
-            <a href="index.html" class="text-3xl font-bold tracking-tighter text-amber-900 z-[110]">NARRIVO</a>
-            
-            <div class="hidden md:flex space-x-8 text-sm font-semibold uppercase tracking-widest text-stone-500">
-                <a href="index.html" class="hover:text-amber-700 transition">Home</a>
-                <a href="about.html" class="hover:text-amber-700 transition">About</a>
-                <a href="events.html" class="text-amber-900 font-bold border-b-2 border-amber-900 pb-1">Events</a>
-                <a href="discussion.html" class="hover:text-amber-700 transition">Discussion Guide</a>
-                <a href="community.html" class="hover:text-amber-700 transition">Community</a>
-                <a href="blog.html" class="hover:text-amber-700 transition">Blog</a>
+    <div class="container">
+        <nav>
+            <a href="index.html" class="logo">Narrivo.</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="events.html" class="active">Events</a>
+                <a href="contact.html">Contact</a>
             </div>
+        </nav>
+    </div>
 
-            <div class="md:hidden flex items-center">
-                <input type="checkbox" id="menu-toggle" class="hidden">
-                <label for="menu-toggle" class="z-[110] cursor-pointer text-amber-900 p-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
-                    </svg>
-                </label>
+    <header class="spotlight-hero">
+        <div class="container">
+            <span class="eyebrow">Engagement & Insight</span>
+            <h1>Author Spotlight</h1>
+            <p class="hero-desc">Connecting readers with creators. Our sessions explore the craftsmanship and stories that define modern literature.</p>
+        </div>
+    </header>
 
-                <div class="menu-overlay fixed inset-0 bg-white z-[105] translate-x-full transition-transform duration-300 ease-in-out flex flex-col items-center justify-center space-y-8 text-xl uppercase tracking-widest font-bold text-stone-600">
-                    <label for="menu-toggle" class="absolute top-6 right-6 text-stone-400 cursor-pointer">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                        </svg>
-                    </label>
-                    <a href="index.html" class="hover:text-amber-900">Home</a>
-                    <a href="about.html" class="hover:text-amber-900">About</a>
-                    <a href="events.html" class="text-amber-900 font-bold">Events</a>
-                    <a href="discussion.html" class="hover:text-amber-900">Discussion Guide</a>
-                    <a href="community.html" class="hover:text-amber-900">Community</a>
-                    <a href="blog.html" class="hover:text-amber-900">Blog</a>
+    <section class="archive-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>January 2026 Archive</h2>
+            </div>
+            
+            <div class="event-grid">
+                <article class="event-card">
+                    <div class="card-img">
+                        <img src="images/canticle.jpg" alt="Canticle">
+                        <span class="date-badge">Jan 07, 2026</span>
+                    </div>
+                    <div class="card-body">
+                        <h3>Canticle</h3>
+                        <span class="author-tag">by Janet Rich Edwards</span>
+                        <p>A deep-dive session into 13th-century Belgium, exploring themes of agency and faith.</p>
+                        <a href="https://www.goodreads.com/book/show/223957541-canticle" target="_blank" class="event-link">Full Review →</a>
+                    </div>
+                </article>
+
+                <article class="event-card">
+                    <div class="card-img">
+                        <img src="images/daughter.jpg" alt="Daughter of Genoa">
+                        <span class="date-badge">Jan 12, 2026</span>
+                    </div>
+                    <div class="card-body">
+                        <h3>Daughter of Genoa</h3>
+                        <span class="author-tag">by Tanaz Bhathena</span>
+                        <p>A mid-month discussion focused on heritage and the expansive research of historical Italy.</p>
+                        <a href="https://www.goodreads.com/book/show/199743719-daughter-of-genoa" target="_blank" class="event-link">Full Review →</a>
+                    </div>
+                </article>
+
+                <article class="event-card">
+                    <div class="card-img">
+                        <img src="images/fateful.jpg" alt="Fateful Hours">
+                        <span class="date-badge">Jan 16, 2026</span>
+                    </div>
+                    <div class="card-body">
+                        <h3>Fateful Hours</h3>
+                        <span class="author-tag">by Ian Kershaw</span>
+                        <p>A rigorous weekend session analyzing the political collapse of the Weimar Republic.</p>
+                        <a href="https://www.amazon.com/Fateful-Hours-Collapse-Weimar-Republic/dp/1324110546" target="_blank" class="event-link">Full Review →</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="review-room">
+        <div class="container">
+            <div class="section-header">
+                <h2 style="color: white;">The Review Room</h2>
+            </div>
+            <div class="review-grid">
+                <div class="review-card author-accent">
+                    <p class="quote">"Narrivo’s community doesn't just read; they dissect the emotional heartbeat of the story."</p>
+                    <span class="reviewer-name">Roselyn Van Dyk</span>
+                    <span class="reviewer-title">Author & Contributor</span>
+                </div>
+                <div class="review-card author-accent">
+                    <p class="quote">"It was a pleasure engaging with a group that respects the craft of writing this much."</p>
+                    <span class="reviewer-name">Colin Guest</span>
+                    <span class="reviewer-title">Author & Travel Writer</span>
+                </div>
+                <div class="review-card reader-accent">
+                    <p class="quote">"The Jan 12th session changed how I read historical fiction. Absolute masterclass."</p>
+                    <span class="reviewer-name">Eleanor Vance</span>
+                    <span class="reviewer-title">Premium Member</span>
+                </div>
+                <div class="review-card reader-accent">
+                    <p class="quote">"Finally, a book club that takes non-fiction seriously. The Jan 16th session was fantastic."</p>
+                    <span class="reviewer-name">Arthur Penhaligon</span>
+                    <span class="reviewer-title">Community Member</span>
                 </div>
             </div>
         </div>
-    </nav>
+    </section>
 
-    <header class="py-20 text-center border-b border-stone-200">
-        <h1 class="text-5xl mb-4 font-bold">Gatherings</h1>
-        <p class="text-stone-500 italic">Where stories come to life through conversation.</p>
-    </header>
-
-    <main class="max-w-4xl mx-auto px-6 py-20 space-y-24">
-        <div class="flex flex-col md:flex-row gap-12 items-center">
-            <div class="w-full md:w-1/2">
-                <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80" alt="Cafe Meeting" class="rounded-sm shadow-xl">
-            </div>
-            <div class="w-full md:w-1/2 space-y-4">
-                <div class="text-amber-800 font-bold uppercase tracking-widest text-xs">January 24, 2026 • 6:00 PM</div>
-                <h2 class="text-3xl font-serif font-bold">The Midnight Library Discussion</h2>
-                <p class="text-stone-500 text-sm italic">The Glass House Café, Downtown</p>
-                <p class="text-stone-600 text-sm leading-relaxed">Join us for an evening of deep reflection as we explore the infinite lives of Nora Seed over coffee and light bites.</p>
-                <a href="mailto:support@narrivobookclub.online?subject=RSVP: The Midnight Library" class="inline-block border-b-2 border-amber-900 pb-1 text-xs font-bold uppercase tracking-widest hover:text-amber-900 transition">RSVP via Email</a>
-            </div>
-        </div>
-
-        <div class="flex flex-col md:flex-row-reverse gap-12 items-center">
-            <div class="w-full md:w-1/2">
-                <img src="https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b?auto=format&fit=crop&w=800&q=80" alt="Virtual Meeting" class="rounded-sm shadow-xl">
-            </div>
-            <div class="w-full md:w-1/2 space-y-4">
-                <div class="text-amber-800 font-bold uppercase tracking-widest text-xs">February 02, 2026 • 7:00 PM</div>
-                <h2 class="text-3xl font-serif font-bold">Virtual Reading Hour</h2>
-                <p class="text-stone-500 text-sm italic">Online via Zoom</p>
-                <p class="text-stone-600 text-sm leading-relaxed">A quiet hour for communal reading, followed by a brief 20-minute check-in on our current progress.</p>
-                <a href="mailto:support@narrivobookclub.online?subject=Zoom Link Request" class="inline-block border-b-2 border-amber-900 pb-1 text-xs font-bold uppercase tracking-widest hover:text-amber-900 transition">Request Link</a>
-            </div>
-        </div>
-    </main>
-
-    <footer class="bg-stone-900 text-stone-400 py-16 px-6">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center border-t border-stone-800 pt-10">
-            <div class="mb-8 md:mb-0 text-center md:text-left">
-                <p class="text-xs tracking-widest font-bold uppercase mb-2">&copy; 2026 NARRIVO BOOK CLUB.</p>
-                <p class="text-[10px] text-stone-600 tracking-widest uppercase">Elevating the Reading Experience.</p>
-            </div>
-            <div class="flex flex-col items-center md:items-end space-y-4">
-                <a href="mailto:support@narrivobookclub.online" class="text-amber-500 hover:text-amber-400 transition text-sm font-bold tracking-widest uppercase border-b border-amber-900 pb-1">
-                    Contact Us: support@narrivobookclub.online
-                </a>
-            </div>
+    <footer>
+        <div class="container">
+            <a href="index.html" class="footer-logo">Narrivo.</a>
+            <p class="footer-text">Cultivating deep reading and intellectual community through narrative exploration.</p>
+            <p class="copyright">&copy; 2026 Narrivo Book Club. All rights reserved.</p>
         </div>
     </footer>
 
